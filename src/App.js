@@ -6,11 +6,13 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         // COMMENT #1: one row is enough to showcase the problem
-        /* COMMENT #2: I include the `{name: 'foo', value: 'bar'}` only to demostrate that fields that aren't
-         *             rendered in the DOM are not reported in the `allValues` parameter of `onValuesChange`
+        /* COMMENT #2: I include the `{name: 'foo', value: 'bar'}` and the "c: 'gamma'" values
+         *             to demostrate that fields that aren't rendered in the DOM are NOT reported 
+         *             in the `allValues` parameter of `onValuesChange` if and only if they are
+         *             not inside a Form.List
          */
         this.state = {useA: true,
-                      fields: [{name: 'foo', value: 'bar'}, {name: 'list', value: [{a: '', b: ''}]}]};
+                      fields: [{name: 'foo', value: 'bar'}, {name: 'list', value: [{a: '', b: '', c: 'gamma'}]}]};
     }
 
     onValuesChange = (changedValues, allValues) => {
