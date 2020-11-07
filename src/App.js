@@ -10,7 +10,7 @@ class App extends React.Component {
          *             rendered in the DOM are not reported in the `allValues` parameter of `onValuesChange`
          */
         this.state = {useA: true,
-                      fields: [{name: 'foo', value: 'bar'}, {name: 'list', value: [{a: 'alpha', b: 'beta'}]}]};        
+                      fields: [{name: 'foo', value: 'bar'}, {name: 'list', value: [{a: '', b: ''}]}]};
     }
 
     onValuesChange = (changedValues, allValues) => {
@@ -73,4 +73,4 @@ class App extends React.Component {
 
 
 export default App;
-
+    
