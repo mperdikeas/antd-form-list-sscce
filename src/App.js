@@ -5,20 +5,25 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {useA: true};
+        this.state = {useA: true,
+                      fields: [{name: 'list', value: [{a: 'alpha', b: 'beta'}]}]};         // one row is enough to showcase the problem
     }
 
-    onValuesChange(_, allValues) {
+    onValuesChange = (changedValues, allValues) => {
         console.log(allValues);
+
+        const newFields = [{name: 'list',
+                            value: allValues.list}];
+
+        this.setState(newFields);
     }
 
     render() {
         const self = this;
-        // one row is enough to showcase the problem
-        const fields = [{name: 'list', value: [{a: 'alpha', b: 'beta'}]}];
+
         return (
           <Form
-            fields = {fields}
+            fields = {this.state.fields}
             onValuesChange = {this.onValuesChange}
                 >
                 <Form.List name='list'>
@@ -30,21 +35,21 @@ class App extends React.Component {
                                 return (
                                         <>
                                         <Button
-                                            onClick={() => {self.setState({useA: !this.state.useA})}}
-                                        >Use {this.state.useA?'B':'A'}</Button>
+                                          onClick={() => {self.setState({useA: !this.state.useA})}}
+                                        >Use {self.state.useA?'B':'A'}</Button>
                                         {
-                                            this.state.useA?(
-                                        <Form.Item
-                                    name={[String(field_index), 'a']}
-                                        >
-                                        <Input addonBefore={'a'}/>
-                                                    </Form.Item>):(
-                                        <Form.Item
-                                    name={[String(field_index), 'b']}
-                                        >
-                                        <Input addonBefore={'b'}/>
-                                                            </Form.Item>
-                                                    )
+                                            self.state.useA?(
+                                               <Form.Item
+                                                   name={[String(field_index), 'a']}
+                                               >
+                                                   <Input addonBefore={'a'}/>
+                                             </Form.Item>):(
+                                             <Form.Item
+                                                     name={[String(field_index), 'b']}
+                                             >
+                                                   <Input addonBefore={'b'}/>
+                                            </Form.Item>
+                                             )
                                         }
                                     </>
                                 );
