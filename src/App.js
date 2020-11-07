@@ -5,8 +5,12 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);
+        // COMMENT #1: one row is enough to showcase the problem
+        /* COMMENT #2: I include the `{name: 'foo', value: 'bar'}` only to demostrate that fields that aren't
+         *             rendered in the DOM are not reported in the `allValues` parameter of `onValuesChange`
+         */
         this.state = {useA: true,
-                      fields: [{name: 'list', value: [{a: 'alpha', b: 'beta'}]}]};         // one row is enough to showcase the problem
+                      fields: [{name: 'foo', value: 'bar'}, {name: 'list', value: [{a: 'alpha', b: 'beta'}]}]};        
     }
 
     onValuesChange = (changedValues, allValues) => {
