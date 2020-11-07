@@ -1,2 +1,5 @@
 # antd-form-list-sscce
 minimal reproduction for Form.List problem
+
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

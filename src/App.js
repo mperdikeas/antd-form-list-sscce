@@ -17,7 +17,7 @@ class App extends React.Component {
         // one row is enough to showcase the problem
         const fields = [{name: 'list', value: [{a: 'alpha', b: 'beta'}]}];
         return (
-                <Form
+          <Form
             fields = {fields}
             onValuesChange = {this.onValuesChange}
                 >
@@ -56,7 +56,7 @@ class App extends React.Component {
                     }
                 }
             </Form.List>
-                </Form>
+          </Form>
         );
 
     }
