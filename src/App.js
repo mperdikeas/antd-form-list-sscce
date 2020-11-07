@@ -1,3 +1,6 @@
+// https://stackoverflow.com/q/64729356/274677
+// https://github.com/ant-design/ant-design/issues/27629
+
 import React from 'react';
 import { Form, Input, Button } from "antd";
 
@@ -9,7 +12,8 @@ class App extends React.Component {
         /* COMMENT #2: I include the `{name: 'foo', value: 'bar'}` and the "c: 'gamma'" values
          *             to demostrate that fields that aren't rendered in the DOM are NOT reported 
          *             in the `allValues` parameter of `onValuesChange` if and only if they are
-         *             not inside a Form.List
+         *             not inside a Form.List. Why do we see this discrepancy? Is it a BUG or 
+         *             an intended feature? (and if the latter, why is it useful?)
          */
         this.state = {useA: true,
                       fields: [{name: 'foo', value: 'bar'}, {name: 'list', value: [{a: '', b: '', c: 'gamma'}]}]};
